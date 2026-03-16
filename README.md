@@ -5,7 +5,7 @@ Claude skills for finding, evaluating, and bidding on government tenders in Mexi
 ## Install
 
 ```bash
-npx skill-licitaciones
+npx github:dylanszejnblum/skill-licitaciones
 ```
 
 That's it. The installer copies the skills into `~/.claude/skills/` and walks you through setup.
