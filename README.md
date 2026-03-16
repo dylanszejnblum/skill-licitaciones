@@ -1,9 +1,19 @@
 # skill-licitaciones
 
 ```
-         ▐▛███▜▌
-        ▝▜█████▛▘       🧉🧉🧉
-          ▘▘ ▝▝        
+██╗      ██╗  ██████╗ ██╗ ████████╗  █████╗   ██████╗ ██╗  ██████╗  ███╗   ██╗ ███████╗ ███████╗
+██║      ██║ ██╔════╝ ██║ ╚══██╔══╝ ██╔══██╗ ██╔════╝ ██║ ██╔═══██╗ ████╗  ██║ ██╔════╝ ██╔════╝
+██║      ██║ ██║      ██║    ██║    ███████║ ██║      ██║ ██║   ██║ ██╔██╗ ██║ █████╗   ███████╗
+██║      ██║ ██║      ██║    ██║    ██╔══██║ ██║      ██║ ██║   ██║ ██║╚██╗██║ ██╔══╝   ╚════██║
+███████╗ ██║ ╚██████╗ ██║    ██║    ██║  ██║ ╚██████╗ ██║ ╚██████╔╝ ██║ ╚████║ ███████╗ ███████║
+╚══════╝ ╚═╝  ╚═════╝ ╚═╝    ╚═╝    ╚═╝  ╚═╝  ╚═════╝ ╚═╝  ╚═════╝  ╚═╝  ╚═══╝ ╚══════╝ ╚══════╝
+
+███████╗ ██╗  ██╗ ██╗ ██╗      ██╗      ███████╗
+██╔════╝ ██║ ██╔╝ ██║ ██║      ██║      ██╔════╝
+███████╗ █████╔╝  ██║ ██║      ██║      ███████╗
+╚════██║ ██╔═██╗  ██║ ██║      ██║      ╚════██║
+███████║ ██║  ██╗ ██║ ███████╗ ███████╗ ███████║
+╚══════╝ ╚═╝  ╚═╝ ╚═╝ ╚══════╝ ╚══════╝ ╚══════╝   
 ```
 
 Skills de Claude para buscar, evaluar y licitar en contrataciones públicas de **México** y **Argentina** usando la API de [LicitaYa](https://www.licitaya.com.mx).
@@ -184,7 +194,7 @@ cp -r skill-licitaciones/tender-manager ~/.claude/skills/
 Para obtener la última versión:
 
 ```bash
-npx skill-licitaciones@latest
+npx github:dylanszejnblum/skill-licitaciones@latest
 ```
 
 El instalador te pregunta antes de sobreescribir skills existentes.
