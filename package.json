@@ -1,0 +1,31 @@
+{
+  "name": "skill-licitaciones",
+  "version": "1.0.0",
+  "description": "Claude skills for fetching, evaluating, and bidding on Mexican and Argentine government tenders via the LicitaYa API",
+  "bin": {
+    "skill-licitaciones": "./bin/install.js"
+  },
+  "files": [
+    "bin",
+    "licitaya-mx",
+    "tender-manager"
+  ],
+  "scripts": {
+    "install-skills": "node bin/install.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-skill",
+    "licitaciones",
+    "licitaya",
+    "government-tenders",
+    "mexico",
+    "argentina",
+    "procurement"
+  ],
+  "author": "dylanszejnblum",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
