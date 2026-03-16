@@ -1,196 +1,216 @@
 # skill-licitaciones
 
-Claude skills for finding, evaluating, and bidding on government tenders in Mexico and Argentina via the [LicitaYa](https://www.licitaya.com.mx) API.
+```
+         ▐▛███▜▌
+        ▝▜█████▛▘       🧉🧉🧉
+          ▘▘ ▝▝        
+```
 
-## Install
+Skills de Claude para buscar, evaluar y licitar en contrataciones públicas de **México** y **Argentina** usando la API de [LicitaYa](https://www.licitaya.com.mx).
+
+> Pensado para equipos comerciales, consultoras y pymes que quieran automatizar la prospección de licitaciones gubernamentales y armar propuestas completas sin salir de Claude.
+
+---
+
+## Instalación rápida
 
 ```bash
 npx github:dylanszejnblum/skill-licitaciones
 ```
 
-That's it. The installer copies the skills into `~/.claude/skills/` and walks you through setup.
+El instalador copia los skills a `~/.claude/skills/` y te guía paso a paso con la configuración.
 
 ---
 
-## What's included
+## Qué incluye
 
-Two skills are installed:
+Se instalan dos skills complementarios:
 
-### `licitaya-mx` — API Wrapper
+### `licitaya-mx` — Wrapper de la API
 
-A focused skill for direct interaction with the LicitaYa API. Use this when you want to quickly search, view, or manage tenders without the full guided workflow.
+Skill enfocado en la interacción directa con la API de LicitaYa. Usalo cuando necesitás buscar, ver o gestionar licitaciones rápidamente sin el flujo guiado completo.
 
-**Triggers:**
+**Se activa con frases como:**
 - "buscar licitaciones"
 - "search tenders"
-- "find government contracts"
+- "encontrar contratos del gobierno"
 - "ver licitación [ID]"
-- "mark tender as favorite"
+- "marcar licitación como favorita"
 
-**Capabilities:**
-- Search tenders with keyword, location, value range, and date filters
-- AI-powered smart search (`smartsearch=1`)
-- View full tender details by ID
-- Like / unlike tenders (save to favorites)
-- Add private notes to tenders
-- Exclude irrelevant tenders from your list
+**Qué puede hacer:**
+- Buscar licitaciones con filtros por palabra clave, ubicación, rango de monto y fecha
+- Búsqueda inteligente con IA (`smartsearch=1`)
+- Ver el detalle completo de una licitación por ID
+- Dar like / quitar like (guardar en favoritos)
+- Agregar notas privadas a una licitación
+- Excluir licitaciones irrelevantes de tu lista
 
 ---
 
-### `tender-manager` — Full Lifecycle Manager
+### `tender-manager` — Gestor de ciclo completo
 
-A strategic partner that guides you through the entire government bidding process, from discovering opportunities to submitting a complete proposal.
+Un socio estratégico que te guía por todo el proceso de licitación pública, desde encontrar oportunidades hasta armar y presentar la propuesta completa.
 
-**Triggers:**
-- "manage my tenders"
+**Se activa con frases como:**
+- "gestionar mis licitaciones"
 - "buscar licitaciones para mi empresa"
-- "help me bid on a contract"
+- "ayudame a licitar un contrato"
 - "cotizar licitación"
-- "should I bid on this?"
-- "write a proposal"
+- "me conviene participar en esta?"
+- "escribir una propuesta"
 - "quiero participar en una licitación"
 
-**Capabilities:**
+**Fases del flujo de trabajo:**
 
-| Phase | What it does |
+| Fase | Qué hace |
 |---|---|
-| **0 — Company Profile** | One-time setup: sector, capabilities, keywords, contract size range |
-| **1 — Scanning** | Multi-query search tuned to your profile, results ranked by fit score |
-| **2 — Go/No-Go** | 6-dimension scorecard: capability fit, timeline, margin, competition, risk, strategic value |
-| **3 — Cotización** | Structured cost breakdown (labor, materials, overhead, margin, IVA) with market rate benchmarks |
-| **4 — Proposal Writing** | Full *propuesta técnica* + *propuesta económica* in formal Mexican government Spanish |
-| **5 — Tracking** | Submission checklist, pipeline view, audit trail saved as tender comments |
+| **0 — Perfil de empresa** | Setup inicial (una sola vez): sector, capacidades, palabras clave, rango de montos |
+| **1 — Escaneo** | Búsquedas múltiples ajustadas a tu perfil, resultados rankeados por puntaje de fit |
+| **2 — Go/No-Go** | Scorecard de 6 dimensiones: capacidad, timeline, margen, competencia, riesgo, valor estratégico |
+| **3 — Cotización** | Desglose de costos estructurado (mano de obra, materiales, overhead, margen, IVA) con benchmarks de mercado |
+| **4 — Propuesta** | *Propuesta técnica* + *propuesta económica* completas en español formal gubernamental |
+| **5 — Seguimiento** | Checklist de presentación, vista de pipeline, historial guardado como comentarios en la licitación |
 
-**Reference library included:**
-- `cotizacion-guide.md` — sector-specific cost rates and markup benchmarks (IT, construction, services, supplies)
-- `proposal-templates.md` — ready-to-fill proposal sections (cover letter, methodology, team profile, pricing table, commercial conditions)
-- `evaluation-framework.md` — go/no-go scoring rubrics by contract type, red flags, common traps
-- `licitaya-api.md` — API quick reference
-
----
-
-## Requirements
-
-### LicitaYa API key
-
-Both skills require a LicitaYa API key. Get one at [licitaya.com.mx](https://www.licitaya.com.mx) or [licitaya.com.ar](https://www.licitaya.com.ar).
-
-Set it in your environment:
-
-```bash
-# Add to ~/.zshrc or ~/.bashrc for persistence
-export LICITAYA_API_KEY=your_key_here
-```
-
-Or set it per-session before launching Claude Code:
-
-```bash
-LICITAYA_API_KEY=your_key_here claude
-```
-
-### Claude Code or Claude.ai
-
-Skills work in both:
-- **Claude Code** — place skill folders in `~/.claude/skills/` (the installer does this automatically)
-- **Claude.ai** — go to Settings → Capabilities → Skills → Upload skill (zip each folder separately)
+**Biblioteca de referencia incluida:**
+- `cotizacion-guide.md` — Tarifas y márgenes de referencia por sector (IT, construcción, servicios, insumos)
+- `proposal-templates.md` — Secciones de propuesta listas para completar (carta de presentación, metodología, equipo, tabla de precios, condiciones comerciales)
+- `evaluation-framework.md` — Rúbricas de scoring go/no-go por tipo de contrato, red flags y trampas comunes
+- `licitaya-api.md` — Referencia rápida de la API
 
 ---
 
-## Usage examples
+## Requisitos
 
-### Quick tender search
+### API key de LicitaYa
+
+Los dos skills necesitan una API key de LicitaYa. Podés obtener una en [licitaya.com.mx](https://www.licitaya.com.mx) (México) o [licitaya.com.ar](https://www.licitaya.com.ar) (Argentina).
+
+Configurala como variable de entorno:
+
+```bash
+# Agregá esto a tu ~/.zshrc o ~/.bashrc para que persista
+export LICITAYA_API_KEY=tu_api_key_acá
+```
+
+O configurala por sesión antes de abrir Claude Code:
+
+```bash
+LICITAYA_API_KEY=tu_api_key_acá claude
+```
+
+### Claude Code o Claude.ai
+
+Los skills funcionan en ambos:
+- **Claude Code** — los skills van en `~/.claude/skills/` (el instalador lo hace automáticamente)
+- **Claude.ai** — andá a Settings > Capabilities > Skills > Upload skill (subí cada carpeta como zip por separado)
+
+---
+
+## Ejemplos de uso
+
+### Búsqueda rápida de licitaciones
 
 ```
 busca licitaciones de tecnología en Jalisco con presupuesto entre 500k y 5M pesos
 ```
 
-### Full bidding workflow
+### Flujo completo de licitación
 
 ```
-quiero participar en licitaciones — ayúdame a configurar mi empresa y encontrar oportunidades
+quiero participar en licitaciones — ayudame a configurar mi empresa y encontrar oportunidades
 ```
 
-Claude will:
-1. Ask about your company (once per session)
-2. Run several searches tuned to your profile
-3. Score each opportunity and recommend the top ones
-4. For each GO decision: build a cotización, then write the full proposal
+Claude va a:
+1. Preguntarte sobre tu empresa (una sola vez por sesión)
+2. Correr varias búsquedas ajustadas a tu perfil
+3. Puntuar cada oportunidad y recomendarte las mejores
+4. Para cada decisión GO: armar la cotización y después escribir la propuesta completa
 
-### Price estimation only
-
-```
-cotiza esta licitación: [paste tender description or ID]
-```
-
-### Check a specific tender
+### Solo cotización
 
 ```
-dame los detalles de la licitación [ID] y dime si vale la pena participar
+cotiza esta licitación: [pegá la descripción o el ID del tender]
+```
+
+### Consultar una licitación específica
+
+```
+dame los detalles de la licitación [ID] y decime si vale la pena participar
 ```
 
 ---
 
-## File structure
+## Estructura de archivos
 
 ```
 skill-licitaciones/
+├── .gitignore
+├── package.json                    # Metadata del paquete y script de instalación
+├── bin/
+│   └── install.js                  # Instalador interactivo (npx)
 ├── licitaya-mx/
-│   ├── SKILL.md                    # Skill instructions + frontmatter
+│   ├── SKILL.md                    # Instrucciones del skill + frontmatter
 │   └── references/
-│       └── api-reference.md        # Full LicitaYa API parameter reference
+│       └── api-reference.md        # Referencia completa de parámetros de la API
 │
 └── tender-manager/
-    ├── SKILL.md                    # Full lifecycle workflow instructions
+    ├── SKILL.md                    # Instrucciones del flujo de ciclo completo
     └── references/
-        ├── cotizacion-guide.md     # Cost benchmarks by sector
-        ├── proposal-templates.md   # Government proposal boilerplate in Spanish
-        ├── evaluation-framework.md # Go/no-go scoring rubrics
-        └── licitaya-api.md         # API quick reference
+        ├── cotizacion-guide.md     # Benchmarks de costos por sector
+        ├── proposal-templates.md   # Templates de propuesta gubernamental en español
+        ├── evaluation-framework.md # Rúbricas de scoring go/no-go
+        └── licitaya-api.md         # Referencia rápida de la API
 ```
 
 ---
 
-## Manual installation
+## Instalación manual
 
-If you prefer not to use npx:
+Si preferís no usar npx:
 
 ```bash
-# Clone the repo
+# Cloná el repo
 git clone https://github.com/dylanszejnblum/skill-licitaciones.git
 
-# Copy skills to Claude's skills directory
+# Copiá los skills al directorio de Claude
 cp -r skill-licitaciones/licitaya-mx ~/.claude/skills/
 cp -r skill-licitaciones/tender-manager ~/.claude/skills/
 ```
 
 ---
 
-## Updating
+## Actualización
 
-To get the latest version:
+Para obtener la última versión:
 
 ```bash
 npx skill-licitaciones@latest
 ```
 
-The installer will ask before overwriting existing skills.
+El instalador te pregunta antes de sobreescribir skills existentes.
 
 ---
 
-## API coverage
+## Cobertura de la API
 
-| Endpoint | Method | Skill |
+| Endpoint | Método | Skill |
 |---|---|---|
-| `/tender/search` | GET | Both |
-| `/tender/{tenderId}` | GET | Both |
-| `/tender/like` | POST | Both |
-| `/tender/newcomment` | POST | Both |
-| `/tender/erase` | POST | Both |
+| `/tender/search` | GET | Ambos |
+| `/tender/{tenderId}` | GET | Ambos |
+| `/tender/like` | POST | Ambos |
+| `/tender/newcomment` | POST | Ambos |
+| `/tender/erase` | POST | Ambos |
 
-Supports both Mexico (`licitaya.com.mx`) and Argentina (`licitaya.com.ar`) endpoints.
+Soporta los endpoints de México (`licitaya.com.mx`) y Argentina (`licitaya.com.ar`).
 
 ---
 
-## License
+## Contribuir
+
+Si te sirvió, dejá una star en el repo. Si encontrás un bug o querés sugerir algo, abrí un [issue](https://github.com/dylanszejnblum/skill-licitaciones/issues) o mandá un PR.
+
+---
+
+## Licencia
 
 MIT
